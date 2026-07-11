@@ -1,0 +1,6 @@
+{
+  "name": "Timbangan Cerdas",
+  "description": "Aplikasi POS Kasir Modern dengan integrasi timbangan digital real-time, manajemen produk, kasir, dan laporan penjualan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
