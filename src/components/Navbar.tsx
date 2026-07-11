@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
 interface NavbarProps {
@@ -9,24 +9,53 @@ interface NavbarProps {
 export default function Navbar({ onLoginClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <nav className="animate-fade-down relative z-20 flex items-center justify-between px-5 sm:px-8 lg:px-10 py-4 sm:py-5 bg-transparent">
       {/* Logo Left */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
         <Logo className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900" />
         <span className="font-bold text-gray-900 tracking-tight sm:text-lg">Timbangan Cerdas</span>
       </div>
 
       {/* Desktop Nav Links */}
       <div className="hidden md:flex items-center gap-8">
-        <button className="flex items-center gap-1 text-[13px] text-gray-700 hover:text-gray-900 transition-colors font-medium">
-          Toolkit <ChevronDown className="w-3.5 h-3.5" />
+        <button 
+          onClick={() => scrollToSection("fitur-timbangan")}
+          className="text-[13px] text-gray-700 hover:text-gray-900 transition-colors font-medium cursor-pointer"
+        >
+          Koneksi Timbangan
         </button>
-        <button className="text-[13px] text-gray-700 hover:text-gray-900 transition-colors font-medium">
-          Plans
+        <button 
+          onClick={() => scrollToSection("kasir-pos")}
+          className="text-[13px] text-gray-700 hover:text-gray-900 transition-colors font-medium cursor-pointer"
+        >
+          Sistem Kasir
         </button>
-        <button className="text-[13px] text-gray-700 hover:text-gray-900 transition-colors font-medium">
-          News
+        <button 
+          onClick={() => scrollToSection("manajemen-produk")}
+          className="text-[13px] text-gray-700 hover:text-gray-900 transition-colors font-medium cursor-pointer"
+        >
+          Manajemen Produk
+        </button>
+        <button 
+          onClick={() => scrollToSection("hak-akses")}
+          className="text-[13px] text-gray-700 hover:text-gray-900 transition-colors font-medium cursor-pointer"
+        >
+          Keamanan Akun
+        </button>
+        <button 
+          onClick={() => scrollToSection("arsitektur-csharp")}
+          className="text-[13px] text-gray-700 hover:text-gray-900 transition-colors font-medium cursor-pointer"
+        >
+          Spesifikasi Kode
         </button>
       </div>
 
@@ -52,15 +81,35 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
       {isOpen && (
         <div className="absolute left-4 right-4 top-full mt-2 rounded-2xl bg-white/90 backdrop-blur-xl ring-1 ring-gray-200 px-5 py-3 animate-fade-up z-30 shadow-lg">
           <div className="flex flex-col">
-            <button className="flex items-center justify-between py-3 text-[15px] text-gray-700 hover:text-gray-900 border-b border-gray-100 font-medium text-left">
-              <span>Toolkit</span>
-              <ChevronDown className="w-4 h-4" />
+            <button 
+              onClick={() => scrollToSection("fitur-timbangan")}
+              className="py-3 text-[15px] text-gray-700 hover:text-gray-900 border-b border-gray-100 font-medium text-left"
+            >
+              Koneksi Timbangan
             </button>
-            <button className="py-3 text-[15px] text-gray-700 hover:text-gray-900 border-b border-gray-100 font-medium text-left">
-              Plans
+            <button 
+              onClick={() => scrollToSection("kasir-pos")}
+              className="py-3 text-[15px] text-gray-700 hover:text-gray-900 border-b border-gray-100 font-medium text-left"
+            >
+              Sistem Kasir
             </button>
-            <button className="py-3 text-[15px] text-gray-700 hover:text-gray-900 border-b border-gray-100 font-medium text-left">
-              News
+            <button 
+              onClick={() => scrollToSection("manajemen-produk")}
+              className="py-3 text-[15px] text-gray-700 hover:text-gray-900 border-b border-gray-100 font-medium text-left"
+            >
+              Manajemen Produk
+            </button>
+            <button 
+              onClick={() => scrollToSection("hak-akses")}
+              className="py-3 text-[15px] text-gray-700 hover:text-gray-900 border-b border-gray-100 font-medium text-left"
+            >
+              Keamanan Akun
+            </button>
+            <button 
+              onClick={() => scrollToSection("arsitektur-csharp")}
+              className="py-3 text-[15px] text-gray-700 hover:text-gray-900 border-b border-gray-100 font-medium text-left"
+            >
+              Spesifikasi Kode
             </button>
             <button 
               onClick={() => {

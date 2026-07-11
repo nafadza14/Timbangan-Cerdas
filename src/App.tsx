@@ -111,7 +111,7 @@ export default function App() {
     setAuditLogs(dbStore.getAuditLogs());
   };
 
-  // --- SCALE SIMULATOR STATE ---
+  // SCALE SIMULATOR STATE
   const [scaleWeight, setScaleWeight] = useState<number>(1.250); // in kg
   const [scaleStatus, setScaleStatus] = useState<WeightStatus>("Stable");
   const [scaleType, setScaleType] = useState<WeightType>("Gross");
@@ -123,7 +123,7 @@ export default function App() {
   // Generate simulated raw serial stream matching CAS SW-II protocol: "ST,GS,+   1.250kg\r\n"
   useEffect(() => {
     if (scaleConnection !== "Connected") {
-      setScaleRawStream("--- PORT CLOSED / NO STREAM ---");
+      setScaleRawStream("KONEKSI PORT TERTUTUP / TIDAK ADA ALIRAN DATA");
       return;
     }
     const statusStr = scaleStatus === "Stable" ? "ST" : "US";
@@ -153,7 +153,7 @@ export default function App() {
     }
   };
 
-  // --- ACTIVE KASIR CART STATE ---
+  // ACTIVE KASIR CART STATE
   const [cart, setCart] = useState<TransactionItem[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [manualWeightInput, setManualWeightInput] = useState<string>("");
@@ -352,7 +352,7 @@ export default function App() {
     alert(`Transaksi ${code} berhasil di-void!`);
   };
 
-  // --- CRUD MANAGERS ---
+  // CRUD MANAGERS
   
   // Product Form State
   const [showProductModal, setShowProductModal] = useState(false);
@@ -499,7 +499,7 @@ export default function App() {
     alert("Konfigurasi timbangan berhasil disimpan!");
   };
 
-  // --- AUTHENTICATION ---
+  // AUTHENTICATION
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     const user = users.find(u => u.username.toLowerCase() === usernameInput.trim().toLowerCase() && u.isActive);
@@ -525,7 +525,7 @@ export default function App() {
     setShowLandingPage(true);
   };
 
-  // --- C# CODE EXPLORER STATE ---
+  // C# CODE EXPLORER STATE
   const [selectedProject, setSelectedProject] = useState<string>("TimbanganCerdas.Core");
   const [selectedFile, setSelectedFile] = useState<typeof csharpFiles[0]>(csharpFiles[0]);
 
