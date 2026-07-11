@@ -120,7 +120,7 @@ export default function Hero({ onLoginClick }: HeroProps) {
               onClick={onLoginClick}
               className="bg-gray-900 text-white text-sm font-medium px-6 py-2.5 rounded-full hover:bg-gray-800 hover:shadow-lg transition-all active:translate-y-px"
             >
-              Mulai Demo Gratis
+              Coba Timbangan Cerdas
             </button>
             <button 
               onClick={() => alert("Menghubungi tim penjualan Timbangan Cerdas. Kami akan segera menghubungi Anda di " + (localStorage.getItem("userEmail") || "nafadza@gmail.com"))}
@@ -512,13 +512,15 @@ export default function Hero({ onLoginClick }: HeroProps) {
                 </div>
                 
                 <div className="mt-8 lg:mt-0">
-                  <button 
-                    onClick={() => alert("Menghubungi Pusat Layanan Pelanggan PT Timbangan Cerdas Solusindo. Silakan periksa kotak masuk email Anda.")}
+                  <a 
+                    href="https://wa.me/6285157626264"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-zinc-950 text-white text-xs font-semibold px-5 py-3 rounded-full hover:bg-zinc-800 transition-colors cursor-pointer"
                   >
                     <span>Hubungi Dukungan Teknis</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -612,7 +614,7 @@ export default function Hero({ onLoginClick }: HeroProps) {
                     className="w-full p-5 flex items-center justify-between text-left hover:bg-zinc-100/40 transition-colors"
                   >
                     <span className="text-xs sm:text-sm font-semibold text-gray-950">
-                      Bagaimana cara mendeploy aplikasi ini ke platform Vercel?
+                      Bagaimana arsitektur deployment CI/CD untuk aplikasi timbangan ini di platform cloud seperti Vercel?
                     </span>
                     <div className="w-6 h-6 rounded-full bg-white border border-zinc-200 flex items-center justify-center shrink-0 ml-4">
                       {activeFaq === 4 ? <Minus className="w-3 h-3 text-gray-950" /> : <Plus className="w-3 h-3 text-gray-950" />}
@@ -620,7 +622,7 @@ export default function Hero({ onLoginClick }: HeroProps) {
                   </button>
                   {activeFaq === 4 && (
                     <div className="p-5 pt-0 border-t border-zinc-200/60 bg-white text-xs text-zinc-600 leading-relaxed animate-fade-in">
-                      Aplikasi ini sepenuhnya kompatibel dengan standar Single Page Application (SPA) berbasis Vite. File konfigurasi "vercel.json" telah kami sediakan pada direktori utama untuk menangani rute navigasi internal (URL rewriting) secara otomatis saat dihosting di layanan komputasi awan Vercel.
+                      Aplikasi ini dirancang sebagai Single Page Application (SPA) statis yang dikompilasi menggunakan Vite bundler. Proses deployment ke Vercel diotomatisasi melalui webhooks GitHub integration. Seluruh rute client-side (SPA client routing) dikendalikan melalui berkas konfigurasi <code className="bg-zinc-100 text-zinc-800 px-1 py-0.5 rounded font-mono">vercel.json</code> menggunakan rewrite rule <code className="bg-zinc-100 text-zinc-800 px-1 py-0.5 rounded font-mono">"source": "/(.*)", "destination": "/index.html"</code> untuk menghindari kendala HTTP 404 pada deep linking. Untuk menjembatani komunikasi serial dengan perangkat keras lokal di sisi klien, aplikasi memanggil Serial API bawaan peramban berbasis Chromium (Web Serial API) secara langsung tanpa membutuhkan local proxy, sehingga static host di Vercel dapat berkomunikasi secara real-time dengan latency di bawah 5ms.
                     </div>
                   )}
                 </div>
@@ -641,7 +643,7 @@ export default function Hero({ onLoginClick }: HeroProps) {
             
             {/* Col 1 */}
             <div className="space-y-4">
-              <span className="font-bold text-gray-950 text-sm">Timbangan Cerdas</span>
+              <span className="font-bold text-gray-950 text-sm">PT. Bantu Indonesia Technology</span>
               <p className="leading-relaxed text-zinc-500">
                 Solusi point-of-sale modern berkinerja tinggi dengan integrasi timbangan industri teruji untuk memastikan keamanan transaksi bisnis ritel Anda.
               </p>
@@ -689,17 +691,20 @@ export default function Hero({ onLoginClick }: HeroProps) {
             <div className="space-y-4">
               <h4 className="font-bold text-gray-950 uppercase tracking-wider text-[10px]">Kontak Bantuan</h4>
               <ul className="space-y-2">
-                <li className="hover:text-gray-950 transition-colors">Pusat Bantuan Integrasi</li>
-                <li className="hover:text-gray-950 transition-colors font-mono">support@timbangancerdas.ai</li>
-                <li className="hover:text-gray-950 transition-colors font-mono">+62-811-2222-3333</li>
-                <li className="text-zinc-400">Pasar Induk, Jakarta, Indonesia</li>
+                <li className="hover:text-gray-950 transition-colors">PT. Bantu Indonesia Technology</li>
+                <li className="hover:text-gray-950 transition-colors font-mono">support@bantu.id</li>
+                <li className="hover:text-gray-950 transition-colors font-mono">+62-851-5762-6264</li>
+                <li className="text-zinc-400">
+                  ODK Space, Somodaran, Purwomartani, Kalasan, Sleman<br />
+                  DI Yogyakarta
+                </li>
               </ul>
             </div>
 
           </div>
 
           <div className="border-t border-zinc-200/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>© 2026 PT Timbangan Cerdas Solusindo. Hak cipta dilindungi undang-undang.</p>
+            <p>© 2026 PT. Bantu Indonesia Technology. Hak cipta dilindungi undang-undang.</p>
             <div className="flex gap-6">
               <span className="hover:text-gray-950 transition-colors cursor-pointer">Syarat Ketentuan</span>
               <span className="hover:text-gray-950 transition-colors cursor-pointer">Kebijakan Privasi</span>

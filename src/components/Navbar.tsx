@@ -65,7 +65,7 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
           onClick={onLoginClick}
           className="bg-gray-900 text-white text-[13px] font-medium px-4 sm:px-5 py-2 rounded-full hover:bg-gray-800 transition-colors shadow-sm"
         >
-          Masuk POS Dashboard
+          Masuk
         </button>
         
         <button 
@@ -118,7 +118,7 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
               }}
               className="mt-3 w-full bg-gray-900 text-white text-[15px] font-medium py-2.5 rounded-xl hover:bg-gray-800 transition-colors text-center"
             >
-              Masuk POS Dashboard
+              Masuk
             </button>
           </div>
         </div>
